@@ -10,7 +10,7 @@ pipeline {
                         haproxyip = sh (
                             script:"aws ec2 describe-instances --filters 'Name=tag:Name,Values=HAProxy' --query 'Reservations[].Instances[].PublicIpAddress[]' --output text",
                             returnStdout: true,
-                        )
+                        ).trim{}
                         echo haproxyip
                     }
                 }
