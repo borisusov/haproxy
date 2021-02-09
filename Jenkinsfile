@@ -13,8 +13,12 @@ pipeline {
                         ).trim()
                         echo haproxyip
                     }
+
+                    sshagent(credentials:['aws_ssh']){
+                        sh "ssh ec2-user@${haproxyip} id"
+                    }
                 }
-            }
+            }   
         }
     }
 }
