@@ -17,8 +17,8 @@ pipeline {
                     }
 
                     sshagent(credentials:['aws_ssh']){
-                        sh "ssh ec2-user@54.145.237.219"
-                      //  sh "ssh ec2-user@${haproxyip} id"
+                        //sh "ssh ec2-user@54.145.237.219"
+                      sh "ssh ec2-user@${haproxyip} id"
                     }
                 }
             }   
