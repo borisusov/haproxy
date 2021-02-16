@@ -13,9 +13,7 @@ pipeline {
                         // returnStdout: true, script: "git log -- format='%h' --no-merges -n 1" ).trim()
 
                         ).trim()
-                        echo haproxyip                       
-
-                    }
+                        echo haproxyip  //                   }
 
 
 
