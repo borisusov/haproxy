@@ -6,15 +6,29 @@ pipeline {
             steps {
                 script{
                     
-                    withAWS(region:'us-east-1',credentials:'aws_admin') {
+                    //withAWS(region:'us-east-1',credentials:'aws_admin') 
+                    
+                    withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'aws-key', usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY']]) {
+                           AWS("--region=us-east-1")
+
+                    
+                    {
                         haproxyip = sh (
                             script:"aws ec2 describe-instances --filters 'Name=tag:Name,Values=HAProxy' --query 'Reservations[].Instances[].PublicIpAddress[]' --output text",
                             returnStdout: true,
-                        //   returnStdout: true, script: "git log --
-                        //      format='%h' --no-merges -n 1" ).trim()
+                        // //  returnStdout: true, script: "git log -- format='%h' --no-merges -n 1" ).trim()
 
                         ).trim()
                         echo haproxyip
+
+
+                        
+
+                    }
+
+
+
+
                     }
 
                     sshagent(credentials:['aws_ssh']){
