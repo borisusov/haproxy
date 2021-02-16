@@ -20,8 +20,9 @@ pipeline {
                         //sh "ssh ec2-user@54.145.237.219"
                       sh """
                             scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null haproxy.cfg ec2-user@${haproxyip}:~
-                      
+                            ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ec2-user@${haproxyip} /bin/bash -C "haproxy -c -V -f haproxy.cfg"
                     """ 
+
                     }
                 }
             }   
