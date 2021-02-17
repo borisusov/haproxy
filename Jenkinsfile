@@ -10,7 +10,7 @@ pipeline {
                         haproxyip = sh (
                             script:"aws ec2 describe-instances --filters 'Name=tag:Name,Values=Haproxy' --query 'Reservations[].Instances[].PublicIpAddress[]' --output text",
                             returnStdout: true,
-                        // returnStdout: true, script: "git log -- format='%h' --no-merges -n 1" ).trim()
+                        
 
                         ).trim()
                         echo haproxyip 
