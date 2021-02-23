@@ -75,7 +75,7 @@ pipeline {
                     sshagent(credentials:['aws_ssh']){
                         
                       sh """
-                           hostnamectl
+                           
                            pwd
                            ls -la
                            
