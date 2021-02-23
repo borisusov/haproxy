@@ -78,7 +78,7 @@ pipeline {
                            
                            pwd
                            ls -la
-                           
+                           whoami
                            hostname                          
                     """ 
                     }
