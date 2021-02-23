@@ -75,16 +75,20 @@ pipeline {
                     sshagent(credentials:['aws_ssh']){
                         
                       sh """
-                            scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null haproxy.cfg ec2-user@${haproxyip}:~                            
+                           hostnamectl
+                           pwd
+                           ls -la
+                           
+                            // scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null haproxy.cfg ec2-user@${haproxyip}:~                            
                     """ 
                     }
 
-                    sshagent(credentials:['aws_ssh']){
+                    // sshagent(credentials:['aws_ssh']){
                         
-                      sh """                            
-                            ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ec2-user@${haproxyip} /usr/sbin/haproxy -c -V -f haproxy.cfg
-                    """ 
-                    } 
+                    //   sh """                            
+                    //         ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ec2-user@${haproxyip} /usr/sbin/haproxy -c -V -f haproxy.cfg
+                    // """ 
+                    // } 
                 }                
             } 
         }
