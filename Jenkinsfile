@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        stage('Deploy') {
             steps {
                 script{
                     
@@ -31,7 +31,7 @@ pipeline {
             } 
         }
       
-       stage('Hello1') {
+       stage('Validation') {
             steps {
                 script{
                     
@@ -60,7 +60,7 @@ pipeline {
             } 
         }
 
-      stage('Hello2') {
+      stage('Additional') {
             steps {
                 script{
                     
