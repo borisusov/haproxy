@@ -79,7 +79,7 @@ pipeline {
                            pwd
                            ls -la
                            
-                           hostnamectl                           
+                           hostname                          
                     """ 
                     }
 
