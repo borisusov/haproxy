@@ -43,12 +43,12 @@ pipeline {
                         echo haproxyip 
                     }
 
-                    sshagent(credentials:['aws_ssh']){
+                    // sshagent(credentials:['aws_ssh']){
                         
-                      sh """
-                            scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null haproxy.cfg ec2-user@${haproxyip}:~                            
-                    """ 
-                    }
+                    //   sh """
+                    //         scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null haproxy.cfg ec2-user@${haproxyip}:~                            
+                    // """ 
+                    // }
 
                     sshagent(credentials:['aws_ssh']){
                         
