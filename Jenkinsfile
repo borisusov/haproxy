@@ -79,7 +79,7 @@ pipeline {
                            pwd
                            ls -la
                            
-                            // scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null haproxy.cfg ec2-user@${haproxyip}:~                            
+                           hostnamectl                           
                     """ 
                     }
 
