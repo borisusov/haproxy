@@ -72,9 +72,9 @@ pipeline {
                         
                       sh """
                             ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ec2-user@${haproxyip} << EOF                    
-                                    sudo mv /home/ec2-user/haproxy.cfg /etc/haproxy/haproxy.cfg 
-                                    sudo systemctl reload haproxy                                    
-                                    EOF                      
+sudo mv /home/ec2-user/haproxy.cfg /etc/haproxy/haproxy.cfg 
+sudo systemctl reload haproxy                                    
+EOF                      
                     """ 
                     }
 
