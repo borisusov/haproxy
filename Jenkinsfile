@@ -71,7 +71,7 @@ pipeline {
                     sshagent(credentials:['aws_ssh']){
                         
                       sh """
-                            ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ec2-user@${haproxyip} sudo /bin/bash -C 'mv /home/ec2-user/haproxy.cfg /etc/haproxy/haproxy.cfg && \
+                            ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ec2-user@${haproxyip} sudo /bin/sh -c 'mv /home/ec2-user/haproxy.cfg /etc/haproxy/haproxy.cfg && \
                                  systemctl reload haproxy'
                            
                                                     
