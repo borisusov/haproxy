@@ -70,8 +70,8 @@ pipeline {
                     sshagent(credentials:['aws_ssh']){
                         
                       sh """
-                          // sudo cp /home/ec2-user/haproxy.cfg /etc/haproxy/haproxy.cfg
-                           sudo systemctl reload haproxy
+                        //    sudo cp /home/ec2-user/haproxy.cfg /etc/haproxy/haproxy.cfg
+                        //    sudo systemctl reload haproxy
                            pwd
                            ls -la
                            whoami
